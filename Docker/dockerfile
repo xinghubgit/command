@@ -1,0 +1,28 @@
+# Dockerfile for csf translate service
+# 1. Copy tar file from target to /app
+# 2. Build with mvn dockerfile:build
+# 3. Upload with mvn dockerfile:push
+# default profile is dev, please create applog folder and use that to mount as docker container folder
+# 4. Run with: docker run -d --name csf-analysis-svc -p hostipd:externalport:8081 -v /home/appadmin/applog/csf_analysis/:/app/service/nlpsvc-service/logs {imageid} {profile}
+
+FROM openjdk:8-jre-alpine
+MAINTAINER JerryCao <jerry.cao@chinascope.com>
+
+ARG VERSION
+ENV VERSION $VERSION
+
+RUN echo "http://mirrors.aliyun.com/alpine/v3.8/main" > /etc/apk/repositories \
+    && echo "http://mirrors.aliyun.com/alpine/v3.8/community" >> /etc/apk/repositories \
+    && apk update upgrade \
+    && apk add --no-cache procps unzip curl bash tzdata \
+    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone
+
+ADD target/nlpsvc-dist-${VERSION}*.tar.gz /app/service/
+RUN  ln -s /app/service/nlpsvc-dist-${VERSION} /app/service/nlpsvc-service \
+  && chmod +x /app/service/nlpsvc-service/bin/*.sh
+
+EXPOSE 8080
+
+ENTRYPOINT ["/app/service/nlpsvc-service/bin/start_inside.sh"]
+CMD []

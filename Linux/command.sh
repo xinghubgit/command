@@ -32,6 +32,9 @@ cat /proc/cpuinfo| grep "cpu cores"| uniq
 # 查看逻辑CPU的个数
 cat /proc/cpuinfo| grep "processor"| wc -l
 
+# 选取aaa的进行求和
+awk '/aaa/ {sum += $2};END {print sum}' test
+
 curl -H "Content-Type:application/json" -X POST --data '{"message": "sunshine"}'
 curl -H "Content-Type:application/json" -H "userName:allen.jin"   http://localhost:10090/sam_mgt/client/product/updated-info
 curl -i "http://192.168.251.11:28089/webui/heat?labelType=3"
@@ -97,3 +100,5 @@ Excel
 *********************************************
 ="UPDATE hq_index SET open="&H155&",high="&I155&",low="&J155&" WHERE dt='2020-04-20' AND tick='"&F155&"' ;"
 ('"&A2&"','"&B2&"','"&C2&"','"&TEXT(D2,"yyyy/mm/dd")&"',"&E2&");
+
+
