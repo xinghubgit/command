@@ -1,0 +1,163 @@
+192.168.249.2
+
+
+DB:
+192.168.100.40
+username: java_team
+password: java_team1234
+
+192.168.250.200
+username: java_product
+password: java_productQWE
+
+订单系统查询库-prod
+122.144.167.70:3306/csforder
+用户：read_only_user
+密码：read_only_user321@!
+
+
+jd-ai-mysql-slave.csilcsoh66yg.rds.cn-north-1.amazonaws.com.cn
+库：data_sync_cli
+用户名：readonly
+密码：chinascope1234
+
+
+服务器：AWS_BJ_54.219_neo4jpoc
+登录地址：http://54.223.54.219:7575/browser/
+用户名：neo4j
+密码：0O5vkn9lsL
+
+
+host:
+122.144.133.58
+
+csf-order:kafa-prod
+192.168.251.124:9093,192.168.251.125:9093,192.168.251.126:9093
+
+*****inews dev database
+*************************
+inews_user
+chinascope1234
+
+*************
+CsfDoc
+*************
+User: showdoc
+password:123456
+
+*************
+es7.0 config
+*************
+echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+sudo sysctl -p
+
+
+*************
+Office365
+*************
+allen.jin@chinascope2018.partner.onmschina.cn
+https://chinascope2018.sharepoint.cn/:x:/r/_layouts/15/Doc.aspx?sourcedoc=%7BFBC21974-0BDA-4E45-8D32-A25D832EBF7F%7D&file=ChinascopeTech%20Asset.xlsx&action=default&mobileredirect=true
+
+
+***********
+INews
+***********
+*HOST
+Dev: 192.168.100.42
+QA:  192.168.250.212
+Prod:Check the email
+
+*URL
+dev-UI：http://dev.case.inews.chinascope.net/#/index
+dev-SVC：http://dev.inews.chinascope.net/admin/site/login；
+username: allen.jin@chinascope.com
+password: BmyR90k4
+
+qa-UI：http://qa.case.inews.chinascope.net:17088/#/index；
+qa-SVC：http://qa.inews.chinascope.net/admin/site/login；
+username: allen.jin@chinascope.com
+password: Rgr4KdMz
+
+
+prod-UI：https://inews.chinascope.com/#/index；
+prod-SVC：http://admin.inews.chinascope.com/admin/site/login
+
+**************************
+alipay
+**************************
+chinascopeinewspayallenplay
+
+IP: 192.168.250.200
+PORT: 3306
+Username: data_sync_cli
+Password: chinascope1234
+
+基本要求
+122.144.133.56 32核 4G 内存中访问 =》1000qps 700ms 以内
+100qps =》1s 内返回
+
+
+**************************
+xxl job的上线流程
+**************************
+username=allen.jin
+password=Xxxx0000
+
+
+http://wiki.chinascope.net/pages/viewpage.action?pageId=9081914
+
+
+**************************
+研报小程序域名
+**************************
+https://wxapp.chinascope.com
+https://wxapp.test.chinascope.com
+
+**************************
+分析服务
+**************************
+username="crawler_qa"
+password="crawler_Q9!^$"
+
+username="news_crawler_prod"
+password="crawler@nlp9345!7"
+
+
+User:13301766782
+Password:chinascope1234
+
+
+
+分析服务的问题汇总：
+1.ResultConverter是干嘛用的
+2.AlgoNodeExecutor;ModelExecContext;ModelExecutor
+3.Param;executor；pipeline;task，pool是如何关联起来的
+4.ModelExecutor;ModelExecContext
+5.companyScope的目的；adhoc的用途
+
+
+
+
+
+#! /bin/bash
+hosturl="http://localhost:8081"
+username="news_crawler_prod"
+password="crawler@nlp9345!7"
+relevance=1
+if [ -n "$1" ];then
+		    relevance=$1
+fi
+
+echo "Username:" $username " Password:" $password
+
+#username="efund_api_test2"
+#password="h1H2gxTs"
+login=`curl -X POST -H "Content-Type=application/x-www-form-urlencoded" -F "username=$username" -F "password=$password"   $hosturl/csf/nlp-news/public/users/login`
+echo "Authorization:Bearer "$login > token
+echo "Get Authorization From Login"
+#curl -X POST  "$hosturl/csf/nlp-news/api/v1/nlp/adhoc-analysis" -H "Content-Type: application/json" -H "$(cat token)" -d @news2.json > result
+curl -X POST  "$hosturl/csf/nlp-news/api/v1/nlp/adhoc-analysis" -H "Content-Type: application/json" -H "X-Company-Scope: full" -H "X-Relevance-Type: ${relevance}"  -H "$(cat token)" -d @news5.json > result
+cat result | jq
+
+
+

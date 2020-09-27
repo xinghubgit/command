@@ -8,10 +8,10 @@ alias cdnlp='cd /app/logs/nlpsvc/logs'
 mvn
 *********************************************
 mvn clean package assembly:single -Dprofile=dev
-mvn versions:set -DnewVersion=0.22.0-SNAPSHOT
+mvn versions:set -DnewVersion=1.6.1-SNAPSHOT
 mvn versions:commit
 
-mvn package assembly:single -Dprofile=dev -DskipTests -DdbType=mysql dockerfile:build dockerfile:push
+mvn package assembly:single -Dprofile=qa -DskipTests -DdbType=mysql dockerfile:build dockerfile:push
 
 #下载所有pom依赖包的source
 
@@ -19,7 +19,7 @@ mvn dependency:resolve -Dclassifier=sources
 #下载指定依赖包的source：其中guava为ArtifactIdcd
 mvn dependency:sources -DincludeArtifactIds=guava
 
-
+CSF0000000001
 *********************************************
 Linux
 *********************************************
@@ -102,3 +102,4 @@ Excel
 ('"&A2&"','"&B2&"','"&C2&"','"&TEXT(D2,"yyyy/mm/dd")&"',"&E2&");
 
 
+<script src="https://gist.github.com/simonista/8703722.js"></script>

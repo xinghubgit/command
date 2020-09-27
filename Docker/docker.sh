@@ -16,7 +16,7 @@ Docker
 #https://github.com/docker/docker/issues/18078
 # https://docs.docker.com/engine/reference/run/#/entrypoint-default-command-to-execute-at-runtime
 docker ps -a
-docker commit csf-analysis-svc-21 user/test_image
+docker commit gs-data-svc user/test_image
 docker run -ti --entrypoint=sh user/test_image
 
 
@@ -31,7 +31,7 @@ docker cp /etc/localtime [容器ID或者NAME]:/etc/localtime
 
 export TZ=$(grep -rl '/usr/share/zoneinfo/' -e $(cat /etc/localtime | tail -1) | tail -1 | cut -d/ -f6-)
 
-#192.168.250.212
+#192.168.250.212长度
 docker run --name match_industry-citic -d -p 28521:28191 -v /app/services/executor-service/algo_svc_config/application-qa.ini:/app/chinascope/services/executor-node/conf/application-local.ini -v /app/services/executor-service/algo_svc_config/match_industry_citic.config.ini:/app/chinascope/services/match_industry/config/match_industry.config.ini -v /app/services/executor-service/algo_svc_config/db-entity-schema-sywg-citic.xml:/app/chinascope/services/executor-node/conf/db-entity-schema.xml -v /app/shuku/logs/nlp-node/match_industry-citic:/app/chinascope/services/executor-node/logs 192.168.250.121:6000/csf/algorithm/match_industry:v0.5.6.24 -a match_industry-citic -P 28521 -h 192.168.250.212
 
 # 122.144.133.59

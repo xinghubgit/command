@@ -29,3 +29,14 @@ git checkout
 git push -u origin master
 
 git revert vs git reset
+
+
+git branch --merged
+git branch -d calc-divide
+git branch -a
+git push origin --delete calc-divide
+
+
+git merge login
+
+
