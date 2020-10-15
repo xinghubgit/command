@@ -43,6 +43,13 @@ jstat -gc -h3 64153 5000 10
 
 java -XX:+PrintFlagsFinal -version
 
+Heap dump can be taken in two ways:
+-XX:+HeapDumpOnOutOfMemoryError   -XX:HeapDumpPath=path
+jmap -dump:format=b,file=heap.bin $pid
+
+MAT
+https://medium.com/@chrishantha/basic-concepts-of-java-heap-dump-analysis-with-mat-e3615fd79eb
+
 *********************************************
 Excel
 *********************************************

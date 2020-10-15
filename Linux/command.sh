@@ -8,7 +8,7 @@ alias cdnlp='cd /app/logs/nlpsvc/logs'
 mvn
 *********************************************
 mvn clean package assembly:single -Dprofile=dev
-mvn versions:set -DnewVersion=1.6.1-SNAPSHOT
+mvn versions:set -DnewVersion=1.0.4-SNAPSHOT
 mvn versions:commit
 
 mvn package assembly:single -Dprofile=qa -DskipTests -DdbType=mysql dockerfile:build dockerfile:push
@@ -103,3 +103,5 @@ Excel
 
 
 <script src="https://gist.github.com/simonista/8703722.js"></script>
+
+export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\]\n'"${_ps1_symbol}"' '

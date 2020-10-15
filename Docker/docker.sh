@@ -43,4 +43,20 @@ docker run --name csf-analysis-svc-pingan -d -p 28081:8081 \
    192.168.250.121:6000/csf/svc/csf-analysis-svc:v0.19.1-mysql \
 -p 8081 -e local -s false -m true
 
+*********************************************
+apk
+*********************************************
+https://www.programmersought.com/article/18483605783/
+
+cd /etc/apk && vi repositories
+http://mirrors.aliyun.com/alpine/v3.8/main/
+http://mirrors.aliyun.com/alpine/v3.8/community/
+
+apk update
+apk add openjdk8
+cd /usr/lib/jvm/java-1.8-openjdk/bin
+
+
+docker cp sa-jdi.jar  449f:/usr/lib/jvm/java-1.8-openjdk/jre
+
 

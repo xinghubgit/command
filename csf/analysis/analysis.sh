@@ -29,6 +29,7 @@ curl -X POST -H "Content-Type=application/x-www-form-urlencoded" -F 'username=cr
 
 curl -XPOST  -H "Content-Type: application/json"  -d '{"buCode":"NCB_SH","newsIds":[24827555]}'  http://internal-riskscope-trust-service-http-1638965482.cn-north-1.elb.amazonaws.com.cn:30070/es/news
 
+curl -XPOST  -H "Content-Type: application/json"  -d '{"rsTypes":[]}'  http://internal-riskscope-trust-service-http-1638965482.cn-north-1.elb.amazonaws.com.cn:30040/kg/query/company/CSF0000003421/relevance
 
 
 curl -X POST  "http://192.168.250.213:9081/csf/nlp-news/api/v1/nlp/adhoc-analysis" -H "Authorization=Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAAKtWyiwuVrJSSi5O083LKSguS1bSUcpMLFGyMjS1NLQwMzQ0MNZRSq0ogAmYmIMESotTi_ISc1NBOosSy3NSi-ILE5VqAVqsT_ROAAAA.XwX2ErU2rJPYqp4rl59hNbqPQcU2mJJCT17NC-BAr2I" -d @news.json
