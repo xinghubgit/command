@@ -43,6 +43,9 @@ docker run --name csf-analysis-svc-pingan -d -p 28081:8081 \
    192.168.250.121:6000/csf/svc/csf-analysis-svc:v0.19.1-mysql \
 -p 8081 -e local -s false -m true
 
+
+
+
 *********************************************
 apk
 *********************************************
@@ -59,4 +62,22 @@ cd /usr/lib/jvm/java-1.8-openjdk/bin
 
 docker cp sa-jdi.jar  449f:/usr/lib/jvm/java-1.8-openjdk/jre
 
+#get docker command from container
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock assaflavie/runlike  76280
 
+apk add busybox-extras => to add telnet
+
+
+
+docker run --name csf-analysis-svc_event_entity -d -e ENV=qa --restart=always -p 9082:8080 \
+-v /app/docker/logs/csf-analysis-svc_event_entity/logs:/app/svc/logs \
+192.168.250.121:6000/csf/svc/csf-analysis-svc:v0.23.0-SNAPSHOT-mysql -e qa -l /app/svc/logs -n mysql
+
+
+*********************************************
+docker 数据卷
+*********************************************
+1.
+
+
+docker run --name inews-stats-svc-2 -d --restart=always -p 9792:8080 -v /app/services/conf/application-prod.properties:/app/services/inews-stats-service/env_conf/application-prod.properties -v /app/docker/logs/inews-stats-svc/logs:/app/svc/logs 116.228.220.198:17088/csf/inews/inews-stats-service:v1.0.2 -e prod -n IDC -l /app/svc/logs

@@ -1,0 +1,156 @@
+version: "3"
+
+services:
+  risk-report-svc:
+    image: 192.168.250.121:6000/csf/svc/risk-report-svc:v1.0.15
+    ports:
+      - "30060:8080"
+    environment:
+      ENV : local
+    restart: always
+    volumes:
+      - "./logs/risk-report-svc:/app/svc/logs"
+      - "./config/risk-report-svc/application-local.properties:/app/services/risk-report-dist/conf/application-local.properties"
+      - config/risk-report-svc/application-local.properties:/
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+
+  news-query-svc:
+    image: 192.168.250.121:6000/csf/svc/news-query-svc:v1.1.2
+    ports:
+      - "30070:8080"
+    environment:
+      ENV: local
+    restart: always
+    volumes:
+      - "./logs/news-query-svc:/app/svc/logs"
+      - "./config/news-query-svc/application-local.properties:/app/services/news-query-dist/conf/application-local.properties"
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+
+  kg-query-svc:
+    image: 192.168.250.121:6000/csf/svc/kg-query-svc:v1.0.8
+    ports:
+      - "30040:8080"
+    environment:
+      ENV: local
+    restart: always
+    volumes:
+      - "./logs/kg-query-svc:/app/svc/logs"
+      - "./config/kg-query-svc/application-local.properties:/app/services/kg-query-dist/conf/application-local.properties"
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 3G
+
+  csf-user-svc:
+    image: 192.168.250.121:6000/csf/common/csf-user-svc:v1.2.9
+    ports:
+      - "8011:8080"
+    environment:
+      ENV: local
+    restart: always
+    volumes:
+      - "./logs/csf-user-svc:/app/svc/logs"
+      - "./config/csf-user-svc/application-local.properties:/app/services/csf-user-dist/conf/application-local.properties"
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+
+  risk-stat-job:
+    image: 192.168.250.121:6000/csf/svc/risk-stat-job:v1.0.5
+    ports:
+      - "30020:8080"
+    environment:
+      ENV : local
+    restart: always
+    volumes:
+      - "./logs/risk-stat-job:/app/svc/logs"
+      - "./config/risk-stat-job/application-local.properties:/app/services/risk-stat-dist/conf/application-local.properties"
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+
+  csf-mail-svc:
+    image: 192.168.250.121:6000/csf/common/csf-mail-svc:v1.0.2
+    ports:
+      - "8013:8080"
+    environment:
+      ENV: local
+    restart: always
+    volumes:
+      - "./logs/csf-mail-svc:/app/svc/logs"
+      - "./config/csf-mail-svc/application-local.properties:/app/services/csf-mail-dist/conf/application-local.properties"
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+
+  comname-query-svc:
+    image: 192.168.250.121:6000/csf/svc/comname-query-svc:v1.0.3
+    ports:
+      - "30010:8080"
+    environment:
+      ENV : local
+    restart: always
+    volumes:
+      - "./logs/comname-query-svc:/app/svc/logs"
+      - "./config/comname-query-svc/application-local.properties:/app/services/comname-query-dist/conf/application-local.properties"
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+
+  sam-data-svc:
+    image: 192.168.250.121:6000/csf/svc/sam-data-svc:v1.5.4
+    ports:
+      - "30110:8080"
+    environment:
+      ENV: local
+    restart: always
+    volumes:
+      - "./logs/sam-data-svc:/app/svc/logs"
+      - "./config/sam-data-svc/application-local.properties:/app/services/sam-data-dist/conf/application-local.properties"
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+
+  gs-data-svc:
+    image: 192.168.250.121:6000/csf/svc/gs-data-svc:v1.7.11
+    ports:
+      - "30100:8080"
+    environment:
+      ENV: local
+    restart: always
+    volumes:
+      - "./logs/gs-data-svc:/app/svc/logs"
+      - "./config/gs-data-svc/application-local.properties:/app/services/gs-data-dist/conf/application-local.properties"
+    command: -e  local  -l /app/svc/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 3G

@@ -1,17 +1,26 @@
 #!/usr/bin/env bash
 
+export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\]\[\e[33m\]\w\[\e[0m\]\n'"${_ps1_symbol}"' '
 alias dp='docker ps'
 alias di='docker inspect'
 alias cdnlp='cd /app/logs/nlpsvc/logs'
+alias l='ls -l'
+alias vi='vim'
+alias hist='history'
+alias cdall='cd ~/allen'
+alias cdnlp='cd /app/docker/logs/csf-analysis-svc/logs'
+alias cdes='cd /app/elk_services/elasticsearch-6.5.4'
 
 *********************************************
 mvn
 *********************************************
 mvn clean package assembly:single -Dprofile=dev
-mvn versions:set -DnewVersion=1.0.4-SNAPSHOT
+mvn versions:set -DnewVersion=0.24.1
 mvn versions:commit
 
-mvn package assembly:single -Dprofile=qa -DskipTests -DdbType=mysql dockerfile:build dockerfile:push
+mvn package assembly:single -Dprofile=prod -DskipTests -DdbType=mysql dockerfile:build dockerfile:push
+
+mvn package assembly:single -Dprofile=prod -DskipTests  dockerfile:build dockerfile:push
 
 #下载所有pom依赖包的source
 
@@ -55,8 +64,16 @@ for i  in $(ls nlpsvc.log*); do unzip $i; done
 #output
 #1,100
 #2,100
-#3,500
+#3,100
 awk  'BEGIN{FS=OFS=","}NR==FNR{a[$1]=$2}NR>FNR{print $1,a[$2]}' b.txt a.txt
+nohup awk  'BEGIN{FS=OFS="`#`"}NR==FNR{a[$2]=$1}NR>FNR{print $1,$2,a[$2]}' tm_no_202011 tm_no_202008 > idsvs &
+
+//Exist In data Not in data2
+ awk 'NR==FNR{a[$0]++;next} !a[$0]' data2 data
+
+BEGIN {FS=OFS=","} {if (a[$1]<$3){a[$1]=$3}} END {for (i in a ) {print i,a[i]}
+
+
 
 # empty line
 sed '/^[[:space:]]*$/d'
@@ -105,3 +122,16 @@ Excel
 <script src="https://gist.github.com/simonista/8703722.js"></script>
 
 export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\]\n'"${_ps1_symbol}"' '
+
+*********************************************
+Linux Command
+*********************************************
+#There are two kinds of week:
+#Monday as first day
+#Sunday as first day
+date +%V; date +%U
+
+-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${base_dir}/kg.dump
+
+
+

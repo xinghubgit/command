@@ -5,15 +5,26 @@
 *********************************************
 --无需验证
 
-docker run --name csf-analysis-svc-21 -d -p 9081:8081  \
--v /app/docker/config/csf-analysis-svc/application-mysql.properties:/app/service/nlpsvc-service/env_conf/application-local.properties \
+docker run --name csf-analysis-svc -d -p 9081:8081  \
 -v /app/logs/nlpsvc/logs:/app/service/nlpsvc-service/logs \
---restart=always 192.168.250.121:6000/csf/svc/csf-analysis-svc:v0.22.4--mysql   -e local -p 8081  -s false -m true
+--restart=always 192.168.250.121:6000/csf/svc/csf-analysis-svc:v0.24.0-mysql    -e local -p 8081  -s false -m true
 
 
-docker run --name csf-analysis-svc-22-4 -d --cpus=2 -m 1G --memory-swap 2G  -e ENV=pro_idc --restart=always -p 9081:8081 \
+docker run --name csf-analysis-svc -d -e ENV=qa --restart=always -p 9081:8081 \
  -v /app/docker/logs/csf-analysis-svc/logs:/app/svc/logs \
-116.228.220.198:17088/csf/svc/csf-analysis-svc:v0.22.4-mysql  -e pro_idc -l /app/svc/logs -p 8081
+192.168.250.121:6000/csf/svc/csf-analysis-svc:v0.24.0-SNAPSHOT-mysql  -e qa -l /app/svc/logs -p 8081
+
+
+
+docker run --name csf-analysis-svc-24 -d --cpus=2 -m 1G --memory-swap 2G  -e ENV=pro_idc --restart=always -p 9081:8081 \
+-v /app/docker/logs/csf-analysis-svc/logs:/app/svc/logs \
+116.228.220.198:17088/csf/svc/csf-analysis-svc:v0.24.0-mysql -e pro_idc  -l /app/svc/logs -p 8081
+
+
+
+docker run --name csf-analysis-svc -d -p 9081:8081  -v /app/docker/config/csf-analysis-svc/application-mysql.properties:/app/service/nlpsvc-service/env_conf/application-local.properties -v /app/logs/nlpsvc/logs:/app/service/nlpsvc-service/logs --restart=always 192.168.250.121:6000/csf/svc/csf-analysis-svc:v0.24.0-SNAPSHOT-mysql    -e local -p 8081  -s false -m true
+
+
 
 
 部署--CSF
@@ -22,10 +33,12 @@ docker run --name csf-analysis-cluster -d -e ENV=dev --restart=always -p 9082:80
 192.168.250.121:6000/csf/svc/csf-analysis-svc:v0.21.5-mysql -e dev -l /app/svc/logs -n mysql
 
 
+
+
 *********************************************
 *验证
 *********************************************
-curl -X POST -H "Content-Type=application/x-www-form-urlencoded" -F 'username=crawler_qa'        -F 'password=crawler_Q9!^$' http://192.168.250.212:9081/csf/nlp-news/public/users/login
+curl -X POST -H "Content-Type=application/x-www-form-urlencoded" -F 'username=crawler_qa'        -F 'password=crawler_Q9!^$' http://192.168.250.111:9081/csf/nlp-news/public/users/login
 
 curl -XPOST  -H "Content-Type: application/json"  -d '{"buCode":"NCB_SH","newsIds":[24827555]}'  http://internal-riskscope-trust-service-http-1638965482.cn-north-1.elb.amazonaws.com.cn:30070/es/news
 
@@ -67,7 +80,6 @@ awk 'NR==FNR{a[$1]=$0;next}NR>FNR{if($1 in a)print a[$1],$2,$3}' file1.txt file2
 head  -500 nlpsvc.log  | grep 'finish analysis news'  | awk -F' ' '{print $1 " " $9}' | sed 's/\.[0-9][0-9][0-9]//g' |  sed 's/news\[\(.*\)\]/\1/g'
 
 cat  nlpsvc.log  | grep 'finish analysis news'  | awk '{print $1 " " $9}' | sed 's/\.[0-9][0-9][0-9]//g' |  sed 's/news\[\(.*\)\]/\1/g' | awk '{s[$1] += 1}END {for (i in s) {print i, s[i]}}' | awk '{sum += $2}END{print "Average=", sum/NR}'
-
 
 
 

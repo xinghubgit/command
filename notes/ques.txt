@@ -1,0 +1,1283 @@
+1. 会话缓存（Session Cache）:用Redis缓存会话比其他存储（如memcached）的优势在于，redis提供持久化。
+1.es实验，neo4j实验，
+1.ExceptionHandler和ControllerService包含的ErroMessage
+
+1.read mysql document to know more about mysql;
+1.restController的作用
+1.Seperate interface and implement
+1.Spring Cache的时候我们要保证我们缓存的方法对于相同的方法参数要有相同的返回结果
+
+
+
+1.设计模式
+公司中有意思的事情：
+inews的重构 =》 改造成分布式框架（速度，流程）
+行情服务  =》 与INWS结合
+
+
+
+
+
+2.
+2. 全页缓存（FPC）:除基本的会话token之外，Redis还提供很简便的FPC平台。
+2.@Produces
+2.DB设计
+2.es访问变慢
+2.learn how to write shell;
+2.rest在springboot中是如何实现的
+2.一起讨论接口的定义是好的
+2.代码规范
+2.具体想想怎么改，到底该如何在现有系统上修改
+2.当一个支持缓存的方法在对象内部被调用时是不会触发缓存功能的
+2.研究机构
+2.负面事件
+3.
+3. 队列：Redis在内存存储引擎领域的一大优点是提供list和set操作，这使得Redis能作为一个很好的消息队列平台来使用。
+3.bob cache缓存问题
+
+3.java command
+3.代码层次
+3.对于多数Web应用，整个系统的瓶颈在于数据库
+3.接口的设计
+3.标题
+3.统一工程的风格是好的
+3.记录所有要修改的内容，关于DB,关于接口
+4. 排行榜/计数器：Redis在内存中对数据进行递增递减的操作实现的非常好。
+4.Redis Cluster Specification
+4.springboot启动过程中cache如何加载
+4.为啥其他的机器上没有cache
+4.代码的书写
+
+
+4.网络带宽、负载均衡节点、应用服务器（包括CPU、内存、硬盘灯、连接数等）、缓存，都很容易通过水平的扩展（俗称加机器）来实现性能的提高。
+5. 订阅/发布
+5.@Service @RequestMapping
+5.mongo中的查询语句
+5.SpringCache是Spring提供的对缓存功能的抽象：即允许绑定不同的缓存解决方案（如Ehcache、Redis、Memcache、Map等等），但本身不直接提供缓存功能的实现。
+5.新技术的调查
+6.
+6.https://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/validation.html
+6.ResponseEntity
+6.快讯的代码
+7.mybatis的所有语法
+8.maven工具的语法
+9.记录一下生活经历的心理过程；以及阶段性的总结很重要
+
+Need To Learn
+Redis有哪些适合的场景？
+
+Todo
+为语句添加结束分号/自动给if语句加上大括号
+刘晓波、李旺阳、桂民海、林荣基
+取值逻辑
+
+
+
+
+
+
+JPA examplematcher 是如何工作的
+---restTemplate API如何返回class
+---mysql多数据源
+Filter
+@PropertySource
+@Configuration
+@ConfigurationProperties
+https://spring.io/guides/gs/async-method/
+CompletableFuture
+Semaphore countdownLatch CyclicBarrier
+
+
+2.比较有意思的实现逻辑
+3.技术形式调查
+4.redis适合什么样的场景，如何引入
+5.关于缓存的处理方式
+6..inews模块划分
+7.重构的挑战
+
+********************************
+
+********************************
+log输出
+日志管理
+controller
+缓存
+servlet vs webFlux
+spring cache 的原理和管理办法  guava  redis encache 不同cache的应用场景分析
+The difference between kill and kill -9
+SimpleClientHttpRequestFactory vs HttpComponentsClientHttpRequestFactory
+docker and k8s
+Springboot 2.0的中文解析
+gc信息
+springcloud
+接口限流
+rest接口规范
+敏捷开发
+Filter vs Intercepter
+mongo用户的概念
+Ngix
+tomcat的工作原理
+token验证sevice
+CompletableFuture
+
+
+
+
+Spring Cloud微服务实战 https://item.jd.com/12172344.html
+Kubernetes in Action中文版 https://item.jd.com/12510666.html
+Kubernetes权威指南：从Docker到Kubernetes实践全接触（第4版）  https://item.jd.com/12601558.html
+Docker技术入门与实战 https://item.jd.com/12453318.html
+Spring Boot编程思想（核心篇） https://item.jd.com/12570242.html
+
+架构整洁之道 https://item.jd.com/12447192.html
+Neo4j权威指南 https://item.jd.com/12241030.html
+实战Java高并发程序设计 https://item.jd.com/12458866.html
+分布式服务架构：原理、设计与实战  https://item.jd.com/12222782.html
+Spark GraphX实战 https://item.jd.com/12155312.html
+Redis开发与运维 https://item.jd.com/12121730.html
+Kafka权威指南 https://item.jd.com/12270295.html
+MongoDB权威指南 https://item.jd.com/11384782.html
+NoSQL数据库入门与实践 https://item.jd.com/12323352.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--1.登录系服务
+2.数据查询和定时刷新服务
+3.用户查询服务和初始化
+--4.ChainBoundDirectionEnum 产业链向内向外 是什么意思？
+5.supply_chain_trade 这个表反映的是什么和什么之间的关系
+
+
+
+/api/product/ancestors => dictProductRs
+/api/product/chain  =》 SupplyChainRelation
+/api/product/sam/stock =》 fin_secu_sam_product_calc
+/api/product/sam/company => t_jd_scope_sam_final_g5
+
+
+graph-sync 图谱数据同步 => bob, allen
+csf-kg-services  clue  =》 michelle, allen
+sz-client 行情（深交所网关接收行情快照（所有的公司，大盘指数））=> allen, bob
+report-listener-service  研报上传S3（未上线，龙柏的数据）=> bob
+sync-service 数据同步服务[华泰]-服务端(公司mongo,mysql同步到S3) => bob
+sync-center  数据同步服务[华泰]-客户端(从S3到华泰机房) => bob
+ada-service 微服务（chang.qi 京东那边使用） 公司推出的openAPI产品服务，用于封装公司的数据接口  => michelle, allen
+
+
+
+RyFlZq0Vb1O6
+26306
+Operating system is currently being reinstalled, and it can take up to 15 minutes to complete.
+
+Once finished, you will receive an e-mail notification at kms_in9@163.com
+
+You will need a new root password to access your VPS:
+N2ysw8Ua3G0X
+
+New SSH Port:
+26306
+
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+python get-pip.py
+pip install --upgrade pip
+pip install shadowsocks
+N2ysw8Ua3G0X
+
+
+
+
+wget — no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+chmod +x shadowsocks.sh
+./shadowsocks.sh 2>&1 | tee shadowsocks.log
+
+
+
+@Configuration vs @Value
+
+
+
+
+SpringCache;
+SpringTransaction
+HikariCP
+Git
+maven
+log
+ES
+
+
+mongo
+Redis mongo mysql oracle ES
+
+CompletableFuture
+Function 如何作为参数传递
+
+/etc/crontab文件和crontab -e命令区别
+
+
+
+
+1.整理对于生产中常用的请求
+2.log打印=》便于调查生产的问题 （aop..;logger;system.out.println）
+3.cache运用
+4.什么是rest   soap vs rest
+5.restTemplate vs webClient
+6.servlet vs reactive (Intercepter vs token)
+7.Springboot to print exception message
+8.CompletableFuture vs Future vs Callable
+9.Mybatis 二级缓存机制
+10.java.util.concurrent
+11.内部类 静态内部类的作用
+
+
+
+
+
+
+
+初始化
+事务
+mybatis Intercepter
+Ngix如何部署
+程序启动过程中的sql校验
+concurrent包的整体的架构以及各项技术的应用的场景
+IO和NIO包
+Add publisher column to product_chain_stream
+concurrent包
+Class.getResource vs FileSystem vs ClassLoader
+double brace initialization
+Excel的技巧
+如何把这些知识串在一起
+
+
+#########
+Spring
+#########
+Aware
+ApplicationEvent extends EventObject
+ApplicationListener extends EventListener
+ApplicationContextAware
+
+
+
+
+
+
+
+
+
+SpringTransaction:
+1.TransactionManager => PlatformTransactionManager
+2.Propagation
+3.Isolation
+
+事务/分布式事务的特性：
+
+
+
+
+
+
+一个工程基本上用到的知识点：
+
+集群 =》分布式框架：
+SpringCloud
+Ngix;
+docker;
+K8S;
+
+高级Java工程师：
+1.Springboot; => springboot;autoconfig;start..
+2.Spring; Springcore;spring beans;spring context; spring webmvc;spring tx
+3.java 8; java.io;java.lang;java.util
+4.mybatis/hibernate
+
+SpringCloud;
+Ngix;Docker;K8S;
+有大型分布式，高并发，高负载，高可用性系统设计开发经验
+
+管理能力 => technical leader
+python => 架构师
+
+产品设计能力
+=>技术总监
+
+
+
+现在要做的事情：
+英文阅读能力训练； =》 听；说；读；写；背诵
+技术书；英文文档；
+看书以及研究问题；
+SpringBoot; Redis
+Mysql；Mybatis/JdbcTemplate/
+重构；微服务架构；分布式架构（负载均衡）
+SpringCloud
+深入理解jvm/高并发程序设计=》高并发
+Leetcode 上做题
+reactive Programming
+
+
+
+
+
+1.分析服务 =》inews中的重分析如何支持？
+2.
+
+
+*****************
+四月
+*****************
+1.Redis => 10号
+---2.docker =》20号
+---3.ES/Kibana这一套
+
+
+
+
+fin_sam_product =>
+dict_product_rs
+base_stock;
+
+
+
+
+1.产品相关公司
+
+question:
+企业库？
+1.待确认清单是如何来的？
+2.推荐关联产品的逻辑是啥？
+3.新建公司？
+4.确认推荐？
+
+
+1.我想知道用户是怎么用的？
+2.数据流如何流动那？
+3.产业链维护平台加上sam计算
+
+
+
+当前项目存在的问题
+
+1.疫情影响
+
+cache缓存 => 下午确定之后可以做
+
+2.产业链维护平台
+性能优化   =》 现在可以开始
+同一层级名称不能重复 =》现在可以开始
+
+sam计算
+
+
+
+产业链维护平台现在存在的问题
+1.隔离前端和服务端
+2.Exception修改
+3.序列产生唯一的生产的CODE
+4.用户服务表落的内容
+5.mappinfo以及前端各种统计的逻辑
+6.前端的页面能否做的可以拖动
+
+部署相关内容
+一前端
+1.域名，前端服务的
+
+
+二服务端
+1.产业链维护平台服务
+2.apollo
+
+依赖服务
+用户服务
+配置appid
+配置用户，权限等
+
+数据库：
+4.弄清楚用户服务表的存储
+
+
+
+
+
+前端：54.222.143.97
+servcie：52.81.17.77：10090
+
+
+
+
+1.分版本分账户的具体实施方法 =>allen,eden
+2.工商数据维护 => allen,laurence
+3.sam计算 =》allen,michelle
+
+
+Ngix功能有哪些？
+
+根据用户ID动态的生成datasource以及selsessionFactory以及sqlSessionTemplate
+1.需要一个库来保存用户和db信息之间的对应关系；
+2.程序启动的时候判断是否加载这个累 =》 加载：动态的生成所有的datasource;sqlSessionFactroy;SqlSessionFactory ;根据用户名取得对应的sqlSession;如果sqlSession不存在，则告诉用户联系CSF
+
+不加载的话，直接用现在已经配置的数据库的用户信息和数库信息
+
+
+1.判断是否初始化，如果初始化完成；则
+
+1.判断用户是否初始化；如果初始化已经完成；则继续； =》
+没有初始化 =》 ①没有对应的datasource, 则需要联系数库；②没有初始化，那么他可以选择进行初始化
+
+
+1.什么都没有更新会出现什么情况？
+2.updateProductMappingsProcess返回值以及内容的条件判断
+
+
+Map<INSERT, ThirdParty2CsfProductMappingBo>
+
+
+5.产业地图
+
+每两周举行一次代码审查。
+内容：功能需求同步；
+
+
+
+代码不一致问题（线上代码和仓库代码不一致）
+
+
+
+--2.引入csv的时候注解@CsvBindByName是怎么运行的？
+  如何识别变量，并且取到对应的值？ =》 @RedisHash
+  =》实现当检测到@CSFLog这样的注解的时候，打印出方法的输入以及用时；
+     当@CSFClassLog的时候，打印出这个方法下面所有子方法的输入和时间。
+     检测@RestController注解打印出方法下的所有方法的输入和时间
+     @CSFServiceCallLog,当所有的service调用时，打印输入参数，时间，如果发生exception，打印出
+     引入log.jar后可以实现以上的操作。
+--3.redis springboot如何配置？
+--4.fullgc的时候如何的处理？如何发现fullgc?
+--5.AQS的工作机制以及Condition
+--6.域名与Ngix配置以及Service
+--7.前端发起请求一直到service接收到底经过多少的类（RequstMapping;PathMatcher;HandlerInterceptor）
+--8.产业链上下游查找和更新的逻辑弄清楚
+
+
+
+
+************
+daily
+************
+刷2道算法题
+读一篇英文技术文章 =》
+
+https://www.workingnomads.co/jobs
+https://remoteok.io/
+https://nomadlist.com/
+https://brilliant.org/
+
+
+***********************************************************
+需要研究的问题
+***********************************************************
+1.jdbc/jdbcTemplate/mybatis/hiberate 各自实现以及各自的优缺点
+2.AOP的实现；IOC的实现； （事务的实现） 对于我们开发的意义
+3.代理模式的意义
+
+5.restful API的规范
+6.Date/TimeStamp是如何转化时区的？
+
+7.Wrap your mind around computational thinking
+
+https://github.com/gsjqwyl/JavaInterview
+
+C:\Users\allen.jin\Documents\NetSarang\Xshell\Sessions
+
+
+***********************************************************
+
+***********************************************************
+
+
+**********************************
+
+test_robert@test.com
+test_robert
+
+
+----1.docker化部署
+----2.不能单独启动的问题
+----@Condition注解的使用，如何事情，优缺点
+
+3.这个是与线程绑定的，如果有异步的，需要在线程中设置对应的org
+
+----①ES网络问题 =》 retry是怎么retry的
+----②负载均衡究竟该怎么做？
+
+精选产业链
+问题：
+1.需要一张表来存储所有的精选产业链
+2.精选产业链有自己产业地图和上下游；精选产业链应该有自己的对应的行业（国标，数库，申万）
+
+
+=》 sync与volatile的区别，内存模型等
+cyclicBarrier是怎么回事？countdownLatch的区别
+ReentrainLock Lock AQS这块具体是什么样的原理
+
+
+1.不同的用户如何看到不同的产业链（每一条产业链需要和inews的用户绑定）
+
+
+1.redis中不需要的key删除
+2.apollo发布
+3.文件路径
+A connection timeout occurs only upon starting the TCP connection. This usually happens if the remote machine does not answer. This means that the server has been shut down, you used the wrong IP/DNS name, wrong port or the network connection to the server is down.
+
+A socket timeout is dedicated to monitor the continuous incoming data flow. If the data flow is interrupted for the specified timeout the connection is regarded as stalled/broken. Of course this only works with connections where data is received all the time.
+
+A socket timeout is the timeout when waiting for individual packets
+
+The connection timeout is the timeout in making the initial connection; i.e. completing the TCP connection handshake. The read timeout is the timeout on waiting to read data1. Specifically, if the server fails to send a byte <timeout> seconds after the last byte, a read timeout error will be raised.
+
+2) What does connection timeout set to "infinity" mean? In what situation can it remain in an infinitive loop? and what can trigger that the infinity-loop dies?
+
+It means that the connection attempt can potentially block for ever. There is no infinite loop, but the attempt to connect can be unblocked by another thread closing the socket. (A Thread.interrupt() call may also do the trick ... not sure.)
+
+
+3) What does read timeout set to "infinity" mean? In what situation can it remain in an infinite loop? What can trigger that the infinite loop to end?
+
+It means that a call to read on the socket stream may block for ever. Once again there is no infinite loop, but the read can be unblocked by a Thread.interrupt() call, closing the socket, and (of course) the other end sending data or closing the connection.
+
+
+
+docker
+1.container与image之间是什么关系
+2.
+
+Docker环境信息 — docker [info|version]
+容器生命周期管理 — docker [create|exec|run|start|stop|restart|kill|rm|pause|unpause]
+容器操作运维 — docker [ps|inspect|top|attach|wait|export|port|rename|stat]
+容器rootfs命令 — docker [commit|cp|diff]
+镜像仓库 — docker [login|pull|push|search]
+本地镜像管理 — docker [build|images|rmi|tag|save|import|load]
+容器资源管理 — docker [volume|network]
+系统日志信息 — docker [events|history|logs]
+
+
+分析服务改造潜在影响待确认模块：
+1、新闻查询（普通查询、投资组合查询）
+2、首页热点统计
+3、我的关注
+4、neo4j新闻增量更新
+5、产业地图（营销线索）
+6、供应链（供应链线索、负面事件）
+7、事件标签（相关公司）
+8、舆情图谱（负面事件、舆情分布）docker
+
+
+
+java,spring,mybatis,cache
+梳理一下自己的知识框架
+
+
+1.docker 中jvm command
+2.负载均衡
+3.git命令深度研究
+4.条件启动
+5.rest规范
+6.代码规范
+7.分布式与微服务思想
+8.inews整体重构设计（重构的详细步骤）
+9.ES本身的研究
+10.设计模式
+
+
+敏捷开发
+Saas
+架构图如何整理
+
+
+
+逻辑思维能力
+表达能力
+阅读习惯
+时间观念
+
+
+
+1.fetch_tim与tim保持一样
+-- 2.source_id 和customer_id  (zylc)
+
+
+
+
+14011621,
+14011622,
+14011623
+
+
+
+我这边接下来要做的事：
+
+
+
+
+
+
+报错的算法：
+match_event_entity
+match_people
+
+
+
+
+
+1.为什么会用两次调用？
+1372354:15:50:09.705 nlpsvc [http-nio-8081-exec-13] INFO  c.c.n.a.f.d.execution.ModelExecutor - analysis object[17095203] finished
+1374158:15:50:12.792 nlpsvc [http-nio-8081-exec-13] INFO  c.c.n.a.f.d.execution.ModelExecutor - analysis object[17095203] finished
+
+2.为什么没有sw和citic的算法，分析服务没有报错？
+3.
+
+
+
+
+历史新闻分析过程中我们遇到的问题
+1.算法部署， 算法的版本；内存占用；部署的个数
+2.分析服务，在算法分析变慢的时候，线程数量会大于200
+3.重分析这个服务需要登记在git上
+4.算法本身的报错
+5.算法平台本身的局限性
+
+
+
+
+
+
+
+历史新闻分析出现的问题汇总
+
+分析服务
+1.在算法执行变慢的情况下，200个线程会不够用，导致分析服务挂掉
+
+算法平台
+1.负载问题：增加多个节点后，请求分发不均匀
+2.算法部署：目前只有wan.jun可以，建议标准化。
+2.算法部署：建议使用docker compose，对于分析的慢的算法，可以多部署几个，快的算法，一个就行。
+
+算法：
+1.在并发下emmotion_position占用内存是平时的3倍以上。
+2.为达到10qps每天机器上部署的算法个数如下图，共运行期间共占用内存大约60G。
+3.match_company部分新闻算法超时，导致后面的新闻无法分析。
+4.对于算法，本次所有的日志已经备份，建议分析一下算法的报错，增加算法的准确度。
+5.执行比较慢的算法：text_sum,com_per_analysis,emotion_position 是否的优化的空间。
+
+
+重分析服务
+1.这部分代码需要放在gitlab上，便于大家分享和修改
+2.取数据调用分析服务并发的方式修改
+
+
+1.docker
+2.修改分析服务对我们的影响
+3.本次上线的内容
+
+
+
+分析服务
+1.政府网站
+2.sqlserver版本
+3.分析小程序=》读表调用分析服务
+
+
+财新数据接入到客户端
+
+
+
+
+
+docker run --rm -p 8080:8080 -p 5000:5000 --name app -e JAVA_TOOL_OPTIONS="-Djava.rmi.server.hostname=0.0.0.0 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=5000 -Dcom.sun.management.jmxremote.rmi.port=5000 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -XX:NativeMemoryTracking=summary" -e NMT_LEVEL_1="summary" tembleking/spring-boot-memory-blog
+
+
+
+
+
+
+1.总体的部署流程
+2.镜像是怎么到客户那里去的
+3.如何查看客户那边的环境或者log
+
+
+筛选条件
+
+1 规则1
+  从数据库sync_conf表中取出对应表的查询规则
+  fin_product_node_his_otc表的规则
+  {"fp": {$gte:"2015"}}
+
+2 规则2
+   upt时间大于最后更新时间
+
+3 规则3
+  三个条件满足一个即可
+
+
+
+
+
+服务端数据的抽取逻辑：
+1.得到最后的更新时间（一下简称Last）
+2.新三板表（fin_product_node_his_otc）找到upt > last； 财务年（fp） >= 2015 的所有数据。
+3.经过下面3个条件，满足任何一个条件，即可被推送：
+  ① sam分项产品字典表（dict_product_rs）表中 cpt > last,得到code集合，新三板表（fin_product_node_his_otc）中nodes.code是否存在于code中。
+  ② 原始产品表 (dict_product_def) upt > last;secu 不为空并且以"QS_EQ"结尾，所有数据帅选出来，得到Map<secu, List<itemcds>>, 判断 新三板表（fin_product_node_his_otc） 中secu 相等的，nodes.code是否存在 itemcds中。
+  ③ 产品分项数据表（fin_sam_product）upt > last ; secu不为空并且以"QS_EQ"结尾；得到secu和报告期(y)，得到Map<y, secus>, 判断新三板表（fin_product_node_his_otc） 中y 相等的，secu是否存在 secus 中。
+
+
+
+分析服务替换带来的影响：
+1.当前inews算法和分析服务算法的区别；表结构区别 =》这周要确认定下来
+2.区别导致的分析出的新闻各大标签的区别
+3.最近三年的新闻写入到es；
+4.各个模块新闻调用接口的适配
+
+
+首页  =》 取最新的新闻
+         新闻统计
+         热度新闻
+
+
+关注 =》 新闻统计
+        根据关注公司搜索出来的新闻
+
+
+搜新闻和图谱的结合
+
+1.架构图，流程图画出来
+2.分模块
+3.接口定义出来
+
+
+1.当前调用了多少接口 =》 rex
+2.neo4j里面新闻的数据重刷；导入到neo4j程序需要重新修改 => michelle
+
+
+
+
+
+inews 当前的功能点
+
+
+
+
+
+
+
+
+
+1.es写入/读取程序
+2.新闻服务(从es中读取数据；读取统计的结果展示数据)
+-- 3.URL对应的次数限制
+4.供应链服务
+5.图谱的查询服务
+6.图谱的读取和写入服务
+7.gs-data-svc
+8.sam-data-svc
+9.csf-suite-svc
+10.csf-order-svc
+11.公司公告
+12.公司研报
+
+
+
+
+
+
+
+
+
+
+
+
+第一步：
+1.es写入/读取程序（新闻以及公司的写入，读取，更新）=》基于推送的数据
+2.新闻服务(从es中读取数据；读取统计的结果展示数据)
+3.供应链服务
+4.图谱查询服务
+5.图谱的读取和写入
+6.URL的限流
+
+第二步：
+1.gs-data-svc重构
+2.sam-data-svc重构
+3.csf-order-svc重构
+4.csf-suite-svc重构
+5.公告服务到公司公告服务
+
+第三步：
+1.图谱的写入和读取重构
+
+
+
+
+
+与新闻相关的内容：
+
+1.新闻模块（新闻的相关搜索）
+2.统计模块（热度，正负面数量，量化分析等）
+3.产业链（上下游，产业地图）
+4.供应链
+5.图谱 =》 关系关系搜
+产品相关公司
+行业相关公司
+概念。。。。 =》
+
+
+question:
+1.舆情图谱
+2.产品相关公司;行业相关公司;概念。。。。;事件。。。。 => 相关的逻辑是啥
+3.产业地图的相关内容
+
+
+当前的问题：
+1.为什么把match_company算法注释，emotion_position 也不会跑
+2.分析服务数据库变更的版本记录
+3.inews分析服务改动带来的影响
+4..inews neo4j股东关系带来的影响
+5.lusong 股票情绪因子
+
+
+question:
+1.图谱模型调查清楚
+2.inews分析服务带来的影响
+
+
+dict_product_rs;
+
+
+
+
+
+
+
+
+
+
+
+“内循环”近来在中国成为热词。尽管中共总书记习近平称“（中国经济）绝不是关起门来封闭运行”，但分析认为，以国内为主的产业循环会造成科技落后、制造成本上升、失业率升高等。面对疫情及中美贸易战等压力，习近平7月时重申国务院副总理刘鹤的主张，表示在当前保护主义上升、世界经济低迷、全球市场萎缩的外部环境下，中国要“充分发挥国内超大规模市场优势，逐步形成以国内大循环为主体、国内国际双回圈相互促进的新发展格局”。
+
+
+
+
+
+
+
+dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+Compose 是用于定义和运行多容器 Docker 应用程序的工具。
+Maven插件构建Docker镜像
+
+
+
+maven 提供了传递依赖的特性
+
+
+
+yaml的基本语法：
+大小写敏感
+使用缩进表示层级关系
+缩进不允许使用tab，只允许空格
+缩进的空格数不重要，只要相同层级的元素左对齐即可
+'#'表示注释
+
+
+git教程
+docker compose
+kafka教程
+
+
+
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+
+
+
+
+Horizontal Scale
+High Availability
+Flexible Data Model
+Rapid Query Execution
+Sophisticated Query Language
+Schemaless
+
+
+
+
+docker-compose
+elasticsearch
+kibana
+logstash
+kafka
+redis
+
+
+
+off-heap 释放存储空间 =》
+block-max wand算法加快搜索速度
+async search 扩展数据查询边界
+未来的road map
+
+
+
+
+
+"newsTitle":"8月28日浙江嘉兴景兴纸业废纸收购价格平稳",
+"newsSummary":"8月28日浙江嘉兴景兴纸业，A级黄板纸收购价格回归平稳，不带票到厂价格为2160元/吨。浙江嘉兴景兴纸业8月24日起，纸品收购价格调整为：种类级别价格类型价格黄板纸A级不带票到厂价2160统货不带票到厂价2060挂面纸不带票到厂价2190超市纸不带票到厂价2130灰黄板不带票到厂价1900化纤管不带票到厂价1920甲牛不带票到厂价2310-2660办公用纸低白不带票到厂价1830高白不带票到厂价2070温馨提示：疫情期间驾驶员一律戴口罩进厂，上车作业佩戴安全帽。"
+
+
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.0-linux-x86_64.tar.gz
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.0-linux-x86_64.tar.gz.sha512
+shasum -a 512 -c elasticsearch-7.9.0-linux-x86_64.tar.gz.sha512
+tar -xzf elasticsearch-7.9.0-linux-x86_64.tar.gz
+cd elasticsearch-7.9.0/
+
+
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.1-linux-x86_64.tar.gz
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.1-linux-x86_64.tar.gz.sha512
+shasum -a 512 -c elasticsearch-7.8.1-linux-x86_64.tar.gz.sha512
+tar -xzf elasticsearch-7.8.1-linux-x86_64.tar.gz
+cd elasticsearch-7.8.1/
+
+
+curl -O https://artifacts.elastic.co/downloads/kibana/kibana-7.8.1-linux-x86_64.tar.gz
+curl https://artifacts.elastic.co/downloads/kibana/kibana-7.8.1-linux-x86_64.tar.gz.sha512 | shasum -a 512 -c -
+tar -xzf kibana-7.8.1-linux-x86_64.tar.gz
+cd kibana-7.8.1-linux-x86_64/
+
+
+
+
+kafka Consumer:
+1.Automatic Group  management & Partition assignment
+2.Offset and consumer positions control
+
+Consumer Group
+1.Allow you to parallel process a topic.
+2.Automatically manages partition assignment.
+3.Detects entry/exit/failure of a consumer and perform partion rebalancing activity.
+
+
+Automatic Partition Assignment
+1.You don't know which partition goes to which consumer. => Two Strategies: Rang & Round robin
+
+
+
+
+
+
+
+
+当前服务的风险点：
+1.分析服务；只有一套，挂了就进不去新闻 =》 需要修复数据的工具
+2.数据库数据需要备份，如果被删除，客户数据永远就找不到了 =》 需要定时的备份客户的数据
+3.ES中新闻的导入
+
+
+Redis
+Hash数据结构
+Bu_name  用户
+分行列表
+
+
+
+
+
+
+
+
+待修改的内容：
+1.缓存 =》cache的缓存；
+2.kafka key的设置
+3.新闻查询出来的标签需要过滤追踪客户的六个维度
+
+
+
+
+
+南洋银行项目上线：
+1.Neo4j 54.223.54.219
+neo4j
+9LbyJHGpqg
+bolt://10.0.6.166:7788
+
+2.AWS ES 集群:
+52.80.33.46/10.0.250.249
+54.223.165.21/10.0.251.23
+54.223.158.77/10.0.250.244
+aws-elasticsearch
+
+
+3.IDC kafka 集群
+192.168.251.124:9093
+192.168.251.125:9093
+192.168.251.126:9093
+
+
+4.graph-sync-app 54.222.156.103
+
+
+xxl job
+
+allenjin
+chinascope1234
+
+
+sam-data-svc  http://192.168.250.214:9100/actuator/info
+gs_data_svc   http://192.168.250.214:9101/actuator/info
+
+
+curl -X GET http://10.0.250.49:30070/actuator/info
+curl -X GET http://10.0.250.49:30040/kg/query/actuator/info
+curl -X GET http://10.0.250.49:30060/risk/report/actuator/info
+curl -X GET http://10.0.250.49:30010/actuator/info
+curl -X GET http://10.0.250.49:30020/actuator/info
+
+http://192.168.250.214:30070/actuator/info
+http://192.168.250.214:30040/kg/query/actuator/info
+
+
+
+http://localhost:30100/data/gs/company/v2/CSF30669481554/suppliers?csfId=CSF30669481554&_v=1600938058036
+
+
+
+
+allen.jin
+risk@2388
+
+
+
+
+http://internal-riskscope-trust-service-http-1638965482.cn-north-1.elb.amazonaws.com.cn:30010/es/company?keyword=byd
+
+
+重分析：
+24175088  24375088 =>
+23975087  24175087 => 132512
+
+
+
+
+
+
+
+1.maven教程
+2.springboot 启动过程
+3.python  java code
+
+
+
+
+
+
+2.initBinder
+3.DispatcherServlet
+4.@Conditional
+6.Redis/ELK
+-- 7.如何调查ES的性能
+8.dns服务器  domain name service
+9.内网 -》路由器；交换机；防火墙
+10.es上对应的新闻的删除
+11.servlet
+14.springboot-start-aop-逻辑
+15.es中新闻的更新
+16.ApplicationArguments
+17.SpringCache
+18.SpringJDBC
+19.restTemplate vs webClient
+20.token验证=> Bear Token
+
+JWT => Bear Token
+21.docker-compose
+22.yml env properties and yml placeholder
+23.RestTemplate vs WebClient
+24.SpringBoot 的启动过程
+25.DesignPattern
+26.voliate keyworld
+
+
+
+1.es中kibana的语句
+2.es的demo
+3.redis的demo
+4.redis的语句
+
+
+
+
+redis中只保存新闻中打印出来的直接的或者间接的公司
+
+
+1.哪些公司能打出来新闻直接直接打出来就好？
+2.直接和间接的也都知道
+3.
+
+
+
+
+
+1.Redis中保存好追踪客户以及追踪客户的关联关系
+
+
+
+
+
+
+
+
+4.公司曾用名的搜索
+
+
+
+1.根据buCode查询所有已经提交的新闻的接口
+2.直接查询新加一个字段，是否加入日报
+3.redis中保存BuCode的值
+
+
+-- 4.重分析事件算法和事件主体算法
+-- 5.当前关联资讯的时间统计
+
+test_user@chinascope.com
+ncb_123456
+
+demo_bu@risk.com
+123456
+
+
+
+18918102625,18857149317
+select min(id) from nlp_company_emotional_position;
+select min(id) from nlp_news_additional;
+select min(id) from nlp_news_company;
+select min(id) from nlp_news_companys_stastics;
+select min(id) from nlp_news_concept;
+select min(id) from nlp_news_content;
+select min(id) from nlp_news_emotional_position;
+select min(id) from nlp_news_event;
+select min(id) from nlp_news_event_entity;
+select min(id) from nlp_news_industry;
+select min(id) from nlp_news_industry_citic;
+select min(id) from nlp_news_industry_sw;
+select min(id) from nlp_news_keyword;
+select min(id) from nlp_news_neg_event;
+select min(id) from nlp_news_people;
+select min(id) from nlp_news_product;
+select min(id) from nlp_news_region;
+select min(id) from nlp_news_summary;
+select min(id) from nlp_people_emotional_position;
+
+
+
+
+
+redisConnectionFactory  (RedisClusterConfiguration, LettuceClientConfiguration)
+                        (RedisSentinelConfiguration, LettuceClientConfiguration)
+                        (RedisStandaloneConfiguration, LettuceClientConfiguration)
+redisClient
+redisTemplate
+ConnectionWatchDog
+
+
+
+PathMatchingResourcePatternResolver
+
+
+
+es questions:
+1.detecting noop updates
+2.stored_fields
+3.reindex
+4.term vectors
+5.tim字段的类型有问题
+6.id的类型有问题
+7.是否可以指定routing来只查找一个分片
+8.companies中是否可以添加一个字段，仅对这个nest class进行过滤，其他的不需要考虑
+9.searchafter vs scroll
+10.searchtemplate no working in es cluster
+11.multi search api
+[ignore_throttled], [rest_total_hits_as_int]
+12.voliatle关键字
+13.FactoryBean vs BeanFactory
+14.BeanDefinitionParser
+15.SpringBootCondition/Conditon
+16.ApplicationContextAware/ElasticsearchConverter
+17.@Configration proxyBeanMethods
+18.PersistenceExceptionTranslator
+20.BeanFactoryPostProcessor
+
+22.ApplicationContext
+23.AutoConfigurationImportSelector => Aware
+24.PathMatchingResourcePatternResolver/ResourceLoader
+25.自己写一个AutoConfig/SpringBoot启动的源码/DispatcherServlet的源码/IOC/AOP
+26.ImportBeanDefinitionRegistrar
+27.aspectjrt vs aspectjweaver
+28.DispatcherServletAutoConfiguration
+
+
+
+
+
+
+
+
+25895128    25904295
+25898141	25904108
+
+[com_per_analysis] -- finish processing, takes
+
+25895088
+25904109
+
+25895128
+25904296
+
+
+ConditionEvaluator
+SpringFactoriesLoader
+启动的过程debug一下
+
+
+NewsQuery => v1.1.1
+es_sync_app => v1.0.4
+news_es_consumer => v1.0.2
+
+
+
+
+
