@@ -1,0 +1,30 @@
+1.php 文件可以包含 文本；HTML，javascript代码和php代码
+2.php代码在服务器上执行，结果以纯HTML的形式发牛给浏览器
+
+3.php可以创建打开，读取，写入关闭服务器上的文件
+4.php可以收集表单数据
+5.php可以接受和发送cookie
+
+
+php语法：
+1.php 脚本可以放在文档中的任何位置；以 <?php 开始，以 ?>结束
+2.php 中每个代码行都要以分号结束；输出文本的基础指令：echo 和 print
+3.php 变量： 以$符号开始；字母数字下划线组成；首位是字母或者下划线；区分大小写
+4.php 中无声明变量的命令，在赋值的时候创建
+5.在函数内调用函数外定义的全局变量，我们需要在函数中的变量加上global 关键字
+6.php 将所有全局变量存储在一个名为 $GLOBAL[index]的数组中；index保存变量的名称，这个数组可以在函数内部访问，也可以直接用来更新全局变量。
+7.局部变量不要被删除，使用static关键字
+8. echo 可以输出一个或多个字符串；print之允许输出一个字符串
+9. PHP 数据类型；String;Integer;Float;Boolean;Array;Object;NUll
+10. php类型比较：== 松散比较，只比较值，不比较类型；===既比较值也比较类型
+11. php设置常量：define("HELLO", "Hello World", true);常量默认是全局变量
+12. php中array函数用于创建数组
+13. php中的全局变量：$GLOBALS $_SERVER $_REQUEST $_POST $_GET $_FILES $_ENV $_COOKIE $_SESSION
+14. $_SERVER是一个包含了诸如头信息（header）,路径（PATH）,以及脚本位置（script Location）等等信息的数组。这个数组中的项目由Web服务器创建。不能保证每个服务器都提供全部的项目
+15. $_REQUEST用于收集HTML表单提交的数据
+16. 接口可以指定某个类必须实现哪些方法，但不需要定义这些方法的具体内容
+17. include 和require语句用于在执行流中插入写在其他文件中的有用的代码
+18. require生成一个致命的错误，脚本会停止运行；include生成一个警告，脚本会继续执行。
+19.
+
+
